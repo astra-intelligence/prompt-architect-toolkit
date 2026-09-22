@@ -1,0 +1,63 @@
+# Prompt Architect Toolkit
+
+A command-line A/B testing harness for systematically comparing LLM prompt variants.
+
+```
+pip install prompt-architect-toolkit
+```
+
+## Quick Start
+
+```bash
+# Compare two prompts side by side
+prompt-ab --prompt-a "You are a code reviewer. Be strict." \
+          --prompt-b "You are a friendly code reviewer. Be helpful." \
+          --input "def add(a,b): return a+b" \
+          --model "gpt-4" \
+          --runs 3
+```
+
+Or use a config file:
+
+```bash
+prompt-ab --config my-test.yaml
+```
+
+## Features
+
+- **Side-by-side comparison** — Run any two system prompts against the same input
+- **Multiple runs** — Repeat tests to account for LLM nondeterminism
+- **Configurable** — YAML config or CLI arguments
+- **Works with any OpenAI-compatible API** — OpenAI, Anthropic, locally hosted, etc.
+- **Structured output** — JSON results for analysis
+
+## Sample Config
+
+```yaml
+prompt_a: prompts/code-review.md
+prompt_b: prompts/code-review-v2.md
+input: "Review this Python function..."
+model: gpt-4
+temperature: 0.3
+runs: 3
+output: results.json
+```
+
+## Get the Full Collection
+
+This package includes a sample of the **Prompt Architect Toolkit**. For the complete set of **25 battle-tested system prompts** across 5 categories (Development, Writing, Analysis, Strategy, Debugging), visit the [Prompt Architect Toolkit on Gumroad](https://grantshatz.gumroad.com/l/jyuhv).
+
+Also available:
+- [SaaS UI Kit](https://grantshatz.gumroad.com/l/uccaws) — 10 premium Tailwind components
+- [Custom AI Profile Pictures](https://grantshatz.gumroad.com/l/rgbzfz) — $1 FLUX-generated images
+- [Premium Tech Banners](https://grantshatz.gumroad.com/l/aodwa) — LinkedIn & Twitter headers
+- [Web2MD Converter](https://grantshatz.gumroad.com/l/mpkqyq) — URL to Markdown
+
+## Requirements
+
+- Python 3.8+
+- OpenAI API key (or compatible) — set `OPENAI_API_KEY` environment variable
+
+## License
+
+MIT

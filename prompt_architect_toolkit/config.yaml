@@ -1,0 +1,24 @@
+# A/B Test Configuration Example
+# Usage: python ab_test.py --config config.yaml
+
+# Prompt files to compare
+prompt_a: "prompts/development/code-review.md"
+prompt_b: "prompts/development/code-review-v2.md"
+
+# Input text sent to both prompts
+input: |
+  def fetch_data(url, timeout=30):
+      import requests
+      r = requests.get(url, timeout=timeout)
+      if r.status_code == 200:
+          return r.json()
+      return None
+
+# Model settings
+model: "gpt-4"
+temperature: 0.3
+runs: 3
+max_tokens: 2048
+
+# Optional: custom API endpoint
+# base_url: "https://api.anthropic.com/v1"

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-architect-toolkit"
+version = "0.1.0"
+description = "A/B testing harness for comparing LLM prompt variants — run side-by-side prompt comparisons, export results"
+readme = "README.md"
+authors = [
+    {name = "Prompt Architect", email = "marcom@astraintelligence.co"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+Homepage = "https://grantshatz.gumroad.com/l/jyuhv"
+Repository = "https://github.com/astra-intelligence/prompt-architect-toolkit"
+"Full 25-Prompt Collection" = "https://grantshatz.gumroad.com/l/jyuhv"
+
+[project.scripts]
+prompt-ab = "prompt_architect_toolkit.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["prompt_architect_toolkit*"]
+
+[tool.setuptools.package-data]
+prompt_architect_toolkit = ["prompts/*", "examples/*", "config.yaml"]
